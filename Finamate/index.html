@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversational Budget Manager - Figma Mockups</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F3F4F6; /* Light gray background for the "canvas" */
+        }
+        .figma-canvas {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            padding: 40px;
+        }
+        .artboard {
+            width: 375px; /* Common mobile width */
+            border: 1px solid #E5E7EB; /* Light border */
+            background-color: #FFFFFF;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 812px; /* iPhone X/11 Pro height */
+        }
+        .screen-title {
+            text-align: center;
+            font-weight: 600;
+            color: #111827;
+            padding-bottom: 20px;
+            font-size: 1.125rem;
+        }
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            background: #fff;
+            border-bottom: 1px solid #F3F4F6;
+            flex-shrink: 0;
+        }
+        .status-bar-time {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .status-bar-icons {
+            display: flex;
+            gap: 6px;
+        }
+        .status-bar-icons svg {
+            width: 20px;
+            height: 20px;
+        }
+        .screen-content {
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+        .home-indicator-container {
+            padding: 16px 0 8px 0;
+            background: #fff;
+            flex-shrink: 0;
+        }
+        .home-indicator {
+            width: 134px;
+            height: 5px;
+            background-color: #111827;
+            border-radius: 100px;
+            margin: 0 auto;
+        }
+        .nav-bar {
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0;
+            border-top: 1px solid #E5E7EB;
+            background-color: #FFFFFF;
+            flex-shrink: 0;
+        }
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            color: #6B7280;
+            cursor: pointer;
+        }
+        .nav-item.active {
+            color: #059669; /* Emerald */
+        }
+        .nav-item svg {
+            width: 24px;
+            height: 24px;
+        }
+        .nav-item span {
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .top-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.875rem; /* 14px */
+            color: #6B7280; /* gray-500 */
+            transition: all 0.2s;
+            background-color: transparent;
+            border: 0;
+            cursor: pointer;
+        }
+        .top-nav-item.active {
+            background-color: #F3F4F6; /* gray-100 */
+            color: #111827; /* gray-900 */
+        }
+        .top-nav-item svg {
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="figma-canvas">
+
+        <!-- 1. Welcome Screen -->
+        <div class="flex flex-col">
+            <h2 class="screen-title">1. Welcome Screen</h2>
+            <div class="artboard">
+                <!-- Status Bar -->
+                <div class="status-bar">
+                    <span class="status-bar-time">9:41</span>
+                    <div class="status-bar-icons">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M11.106 11.106a2.25 2.25 0 0 1 3.182 0M13.924 7.172a1.013 1.013 0 0 1 1.432 0M3 18.75a14.25 14.25 0 0 1 18 0M3 14.25a9.75 9.75 0 0 1 15 0M3 9.75a5.25 5.25 0 0 1 9 0" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
+                    </div>
+                </div>
+                <!-- Screen Content -->
+                <div class="screen-content p-8 flex flex-col justify-center items-center text-center">
+                    <div class="w-24 h-24 bg-emerald-600 rounded-full flex items-center justify-center mb-8 shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <h1 class="text-3xl font-bold text-gray-900 mb-4">Smarter budgeting, simpler conversations.</h1>
+                    <p class="text-gray-600 text-lg mb-12">Let's manage your finances together, just by chatting.</p>
+                    <button class="w-full bg-emerald-600 text-white font-semibold py-4 px-6 rounded-xl shadow-md hover:bg-emerald-700 transition-colors duration-200">
+                        Start Budgeting
+                    </button>
+                    <button class="w-full text-gray-600 font-semibold py-4 px-6 rounded-lg mt-4">
+                        Login
+                    </button>
+                </div>
+                <!-- Home Indicator -->
+                <div class="home-indicator-container mt-auto">
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Chat Interface -->
+        <div class="flex flex-col">
+            <h2 class="screen-title">2. Chat Interface</h2>
+            <div class="artboard">
+                <!-- Status Bar -->
+                <div class="status-bar">
+                    <span class="status-bar-time">9:42</span>
+                    <div class="status-bar-icons">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M11.106 11.106a2.25 2.25 0 0 1 3.182 0M13.924 7.172a1.013 1.013 0 0 1 1.432 0M3 18.75a14.25 14.25 0 0 1 18 0M3 14.25a9.75 9.75 0 0 1 15 0M3 9.75a5.25 5.25 0 0 1 9 0" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
+                    </div>
+                </div>
+                <!-- Top Nav -->
+                <div class="pt-2 pb-3 px-4 bg-white flex justify-around items-center border-b border-gray-200">
+                    <button class="top-nav-item active">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+                        <span>Chat</span>
+                    </button>
+                    <button class="top-nav-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" /></svg>
+                        <span>Insights</span>
+                    </button>
+                    <button class="top-nav-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <span>Overview</span>
+                    </button>
+                </div>
+                <!-- Screen Content (Chat) -->
+                <div class="screen-content p-4 space-y-4 bg-gray-50">
+                    <!-- AI Bubble -->
+                    <div class="flex">
+                        <div class="bg-white p-3 rounded-xl rounded-bl-none max-w-xs shadow-sm">
+                            <p class="text-gray-800">Hi Alex! How can I help with your finances today?</p>
+                        </div>
+                    </div>
+                    <!-- User Bubble -->
+                    <div class="flex justify-end">
+                        <div class="bg-emerald-600 text-white p-3 rounded-xl rounded-br-none max-w-xs shadow-sm">
+                            <p>I just spent $18.50 on lunch.</p>
+                        </div>
+                    </div>
+                    <!-- AI Bubble -->
+                    <div class="flex">
+                        <div class="bg-white p-3 rounded-xl rounded-bl-none max-w-xs shadow-sm">
+                            <p class="text-gray-800">Got it! I've logged $18.50 under 'Food & Dining'.</p>
+                        </div>
+                    </div>
+                    <!-- AI Bubble with data -->
+                    <div class="flex">
+                        <div class="bg-white p-4 rounded-xl rounded-bl-none max-w-xs shadow-sm border border-gray-200">
+                            <p class="text-sm text-gray-600 mb-2">Food & Dining Budget:</p>
+                            <span class="text-xl font-bold text-gray-900">$82.50</span>
+                            <span class="text-gray-600"> / $200.00</span>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 mt-3">
+                                <div class="bg-yellow-400 h-2.5 rounded-full" style="width: 41%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Quick Replies -->
+                    <div class="flex gap-2 pt-2 flex-wrap">
+                        <button class="py-2 px-4 bg-gray-200 text-emerald-700 font-medium rounded-full text-sm">Add another expense</button>
+                        <button class="py-2 px-4 bg-gray-200 text-emerald-700 font-medium rounded-full text-sm">How's my weekly budget?</button>
+                    </div>
+                </div>
+                <!-- Chat Input -->
+                <div class="p-4 bg-white border-t border-gray-200 flex items-center mt-auto">
+                    <input type="text" placeholder="Type your message..." class="flex-grow bg-gray-100 rounded-full py-3 px-5 focus:outline-none">
+                    <button class="ml-3 text-emerald-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Overview (Dashboard) -->
+        <div class="flex flex-col">
+            <h2 class="screen-title">3. Overview / Dashboard</h2>
+            <div class="artboard" style="background-color: #f9fafb;">
+                <!-- Status Bar -->
+                <div class="status-bar" style="background-color: #f9fafb;">
+                    <span class="status-bar-time">9:45</span>
+                    <div class="status-bar-icons">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M11.106 11.106a2.25 2.25 0 0 1 3.182 0M13.924 7.172a1.013 1.013 0 0 1 1.432 0M3 18.75a14.25 14.25 0 0 1 18 0M3 14.25a9.75 9.75 0 0 1 15 0M3 9.75a5.25 5.25 0 0 1 9 0" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
+                    </div>
+                </div>
+                <!-- Top Nav -->
+                <div class="pt-2 pb-3 px-4 bg-white flex justify-around items-center border-b border-gray-200">
+                    <button class="top-nav-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+                        <span>Chat</span>
+                    </button>
+                    <button class="top-nav-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" /></svg>
+                        <span>Insights</span>
+                    </button>
+                    <button class="top-nav-item active">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <span>Overview</span>
+                    </button>
+                </div>
+                <!-- Screen Content (Dashboard) -->
+                <div class="screen-content p-4 space-y-5">
+                    <!-- Main Card -->
+                    <div class="bg-gradient-to-br from-emerald-600 to-green-700 rounded-xl shadow-lg p-6 text-white">
+                        <p class="text-lg font-medium opacity-80">Monthly Budget Remaining</p>
+                        <p class="text-5xl font-bold mt-2">$1,250.40</p>
+                        <div class="w-full bg-black bg-opacity-20 rounded-full h-2.5 mt-4">
+                            <div class="bg-white h-2.5 rounded-full" style="width: 37%"></div>
+                        </div>
+                        <p class="text-sm opacity-80 mt-2">$749.60 spent of $2,000.00</p>
+                    </div>
+
+                    <!-- Quick Summary -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white rounded-xl shadow-md p-4">
+                            <p class="text-sm font-medium text-gray-500">Spent Today</p>
+                            <p class="text-2xl font-bold text-gray-900 mt-1">$42.10</p>
+                        </div>
+                        <div class="bg-white rounded-xl shadow-md p-4">
+                            <p class="text-sm font-medium text-gray-500">Top Category</p>
+                            <p class="text-2xl font-bold text-gray-900 mt-1">Groceries</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Upcoming Bills -->
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Upcoming Bills</h3>
+                        <div class="bg-white rounded-xl shadow-md p-4 flex items-center justify-between">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center mr-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="12" font-weight="bold" fill="currentColor">N</text></svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800">Netflix</p>
+                                    <p class="text-sm text-gray-500">Due in 3 days</p>
+                                </div>
+                            </div>
+                            <span class="font-bold text-gray-800">$15.99</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Navigation -->
+                <div class="nav-bar mt-auto">
+                    
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Insights Screen -->
+        <div class="flex flex-col">
+            <h2 class="screen-title">4. Insights</h2>
+            <div class="artboard" style="background-color: #f9fafb;">
+                <!-- Status Bar -->
+                <div class="status-bar" style="background-color: #f9fafb;">
+                    <span class="status-bar-time">9:46</span>
+                    <div class="status-bar-icons">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.038a5.25 5.25 0 0 1 7.424 0M11.106 11.106a2.25 2.25 0 0 1 3.182 0M13.924 7.172a1.013 1.013 0 0 1 1.432 0M3 18.75a14.25 14.25 0 0 1 18 0M3 14.25a9.75 9.75 0 0 1 15 0M3 9.75a5.25 5.25 0 0 1 9 0" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
+                    </div>
+                </div>
+                <!-- Top Nav -->
+                <div classs="pt-2 pb-3 px-4 bg-white flex justify-around items-center border-b border-gray-200" style="background-color: #f9fafb;">
+                    <button class="top-nav-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
+                        <span>Chat</span>
+                    </button>
+                    <button class="top-nav-item active">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" /></svg>
+                        <span>Insights</span>
+                    </button>
+                    <button class="top-nav-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <span>Overview</span>
+                    </button>
+                </div>
+                <!-- Screen Content (Insights) -->
+                <div class="screen-content p-4 space-y-5">
+                    
+                    <!-- Budget Progress Card -->
+                    <div class="bg-white rounded-xl shadow-md p-5">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">Budget Progress</h3>
+                        
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-sm font-medium text-gray-600">Budget Usage</span>
+                            <span class="text-sm font-bold text-gray-800">29%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+                            <div class="bg-green-500 h-2.5 rounded-full" style="width: 29%"></div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Spent</span>
+                                <span class="font-medium text-gray-800">₹292.00</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Budget</span>
+                                <span class="font-medium text-gray-800">₹1000.00</span>
+                            </div>
+                            <div class="flex justify-between text-base">
+                                <span class="text-gray-600">Remaining</span>
+                                <span class="font-bold text-green-600">₹708.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- All Expenses -->
+                    <div class="bg-white rounded-xl shadow-md p-5">
+                        <h3 class="text-lg font-semibold text-gray-900 mb-4">All Expenses</h3>
+                        <div class="space-y-4">
+                            
+                            <!-- Expense Item 1 -->
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800">Weekly groceries</p>
+                                    <p class="text-sm text-gray-500">Nov 10 • Food</p>
+                                </div>
+                                <span class="font-bold text-gray-800 ml-auto">₹120.00</span>
+                            </div>
+
+                            <!-- Expense Item 2 -->
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800">Gas station</p>
+                                    <p class="text-sm text-gray-500">Nov 9 • Transportation</p>
+                                </div>
+                                <span class="font-bold text-gray-800 ml-auto">₹45.00</span>
+                            </div>
+
+                            <!-- Expense Item 3 -->
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 5v0a5 5 0 015 5v0a5 5 0 01-5 5v0a5 5 0 01-5-5v0a5 5 0 015-5zM9 5v0a5 5 0 015 5v0a5 5 0 01-5 5v0a5 5 0 01-5-5v0a5 5 0 015-5z" /></svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800">Movie tickets</p>
+                                    <p class="text-sm text-gray-500">Nov 8 • Entertainment</p>
+                                </div>
+                                <span class="font-bold text-gray-800 ml-auto">₹30.00</span>
+                            </div>
+
+                            <!-- Expense Item 4 -->
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800">Electricity bill</p>
+                                    <p class="text-sm text-gray-500">Nov 7 • Utilities</p>
+                                </div>
+                                <span class="font-bold text-gray-800 ml-auto">₹85.00</span>
+                            </div>
+
+                            <!-- Expense Item 5 -->
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mr-3 flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-gray-800">Coffee shop</p>
+                                    <p class="text-sm text-gray-500">Nov 12 • Food</p>
+                                </div>
+                                <span class="font-bold text-gray-800 ml-auto">₹12.00</span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Navigation -->
+                <div class="nav-bar mt-auto">
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
